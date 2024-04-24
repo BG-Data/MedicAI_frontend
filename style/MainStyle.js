@@ -36,17 +36,17 @@ const styles = StyleSheet.create({
     },
 
     header: {
-      backgroundColor: '#069E6E', // Cor de fundo verde para o cabeçalho
-      paddingVertical: 65,
+      paddingVertical: 40,
       width: '100%', // Largura total para o cabeçalho ocupar toda a largura da tela
       alignItems: 'center',
       position: 'absolute', // Posicionar absolutamente em relação ao contêiner pai
       top: 0, // Posicionar no topo do contêiner pai
     },
+    
     headerText: {
-      color: '#fff', // Cor do texto do cabeçalho
-      fontSize: 20,
-      fontWeight: 'bold',
+      color: '#069E6E', // Cor do texto do cabeçalho
+      fontSize: 18,
+      textAlign: 'center',
     },
   
     icon: {
@@ -98,6 +98,12 @@ const styles = StyleSheet.create({
     apresentacaoText: {
       textAlign: 'center', // Centraliza o texto horizontalmente
       width: '80%', // Define a largura do texto
+    },
+
+    CampoIcon: {
+      width: 20,
+      height: 20,
+      marginRight: 10,
     },
 
   });
