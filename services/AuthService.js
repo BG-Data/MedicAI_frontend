@@ -1,0 +1,27 @@
+import axios from 'axios';
+
+const AuthService = {
+  async login(email, password) {
+    try {
+      const response = await axios.post("http://3.101.57.70/auth/", {
+        email: email,
+        password: password,
+      });
+      return response.data;
+    } catch (error) {
+        if (error.response) {
+          // Se a resposta for recebida do servidor, mas com um código de status que indica um erro
+          console.error("Erro de resposta da API:", error.response.status);
+        } else if (error.request) {
+          // Se a solicitação foi feita, mas não recebeu resposta do servidor
+          console.error("Não foi possível receber resposta do servidor.");
+        } else {
+          // Se ocorreu um erro durante a configuração da solicitação
+          console.error("Erro ao configurar solicitação:", error.message);
+        }
+        throw new Error('Ocorreu um erro durante o login');
+      }
+    },
+};
+
+export default AuthService;
