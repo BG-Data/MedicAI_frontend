@@ -1,29 +1,31 @@
 import React, { useState } from 'react';
-import { Button, StyleSheet, View, Image, TouchableOpacity, Text} from 'react-native';
+import { Button, StyleSheet, View, Image, TouchableOpacity, Text, Alert} from 'react-native';
 import { Input } from 'react-native-elements';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import styles from '../style/MainStyle';
+import AuthService from '../services/AuthService';
 
 export default function Login({navigation}) {
 
   const [email, setEmail] = useState(null)
   const [password, setpassword] = useState(null)
 
-  // Defina o componente CustomButton
-  const CustomButton = ({ title, onPress, style }) => {
-  return (
-    <TouchableOpacity style={[styles.customButton, style]} onPress={onPress}>
-      <Text style={styles.buttonText}>{title}</Text>
-    </TouchableOpacity>
-  );
-  };
+  const handleLogin = async () => {
+    try {
+      const response = await AuthService.login(email, password);
 
-  const entrar = () => {
-    navigation.reset({
-        index: 0,
-        routes: [{name: 'Home'}]
-    })
-  }
+      if (response.success) {
+        navigation.reset({
+          index: 0,
+          routes: [{ name: 'Home' }],
+        });
+      } else {
+        Alert.alert('Erro', 'Credenciais inválidas. Tente novamente.');
+      }
+    } catch (error) {
+      Alert.alert('Erro', error.message);
+    }
+  };
   
   return (
     <View style={styles.container}>
@@ -40,14 +42,14 @@ export default function Login({navigation}) {
       <View style={styles.inputContainer}>
       <Image
           source={require('../assets/email.png')}
-          style={{ width: 20, height: 20, marginRight: 10 }} // Defina o tamanho do ícone e a margem direita conforme necessário
+          style={{ width: 20, height: 20, marginRight: 10 }}
       />
 
       <Input
         placeholder='Digite seu e-mail'
         inputStyle={styles.emailPlaceholder}
         onChangeText={value => setEmail(value)}
-        keyboardType='email-address' //tipo de caixa
+        keyboardType='email-address'
         containerStyle={{ flex: 1 }}
       />
       </View>
@@ -55,22 +57,23 @@ export default function Login({navigation}) {
       <View style={styles.inputContainer1}>
       <Image
           source={require('../assets/password.png')}
-          style={{ width: 20, height: 20, marginRight: 10 }} // Defina o tamanho do ícone e a margem direita conforme necessário
+          style={{ width: 20, height: 20, marginRight: 10 }}
       />
       <Input
         placeholder='Digite sua senha'
         inputStyle={styles.emailPlaceholder}
 
         onChangeText={value => setpassword(value)}
-        secureTextEntry // Isso oculta o texto digitado para a senha
+        secureTextEntry
       />
      </View>
 
-      <CustomButton
-        title="ENTRAR"
-        onPress={() => entrar()}
-        
-      />
+     <TouchableOpacity
+        style={styles.customButton}
+        onPress={handleLogin}
+      >
+        <Text style={styles.buttonText}>ENTRAR</Text>
+      </TouchableOpacity>
       
       <View style={{ marginTop: 10 }}>
         <Text style={styles.linkText}>
