@@ -30,7 +30,6 @@ const styles = StyleSheet.create({
       marginBottom: 15, // Adicione margem inferior conforme necessário
     },
 
-
     emailPlaceholder: {
       color: '#069E6E', // Cor do texto do placeholder do email
     },
@@ -44,27 +43,27 @@ const styles = StyleSheet.create({
     },
     
     headerText: {
-      color: '#069E6E', // Cor do texto do cabeçalho
+      color: '#069E6E',
       fontSize: 18,
       textAlign: 'center',
     },
   
     icon: {
       marginRight: 10,
-      alignSelf: 'center', // Centraliza verticalmente o ícone
+      alignSelf: 'center',
     },
 
     linkText: {
-      color: '#069E6E', // Cor do link
+      color: '#069E6E',
       textAlign: 'center',
     },
 
     linkContainer: {
-      marginBottom: 20, // Espaço entre links
+      marginBottom: 20,
     },
 
     link: {
-      color: '#069E6E', // Cor do link
+      color: '#069E6E',
       fontWeight: 'bold',
     },
 
@@ -104,6 +103,36 @@ const styles = StyleSheet.create({
       width: 20,
       height: 20,
       marginRight: 10,
+    },
+
+
+    containerhome: {
+
+    },
+
+    column: {
+      flexDirection: 'column',
+    },
+
+    row: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      justifyContent: 'center',
+      marginRight: 0,
+    },
+
+    cardContainer: {
+      justifyContent: 'center',
+      borderRadius: 15,
+      borderWidth: 1,
+      borderColor: '#ccc',
+      backgroundColor: '#fff',
+      flex: 1,
+    },
+
+    cardWrapper: {
+      alignItems: 'center',
+      justifyContent: 'center',
     },
 
   });
