@@ -1,15 +1,19 @@
 import axios from 'axios';
 
 const AuthService = {
-  async login(email, password) {
+  async login(data) {
     try {
-      const response = await axios.post("http://3.101.57.70/auth/", {
-        email: email,
-        password: password,
-      });
+        const options = {
+            headers: {
+              'Accept': 'application/json',
+              'Content-Type': 'application/x-www-form-urlencoded'
+            }
+          };
+
+      const response = await axios.post("http://3.101.57.70/auth", data,options);
       return response.data;
     } catch (error) {
-        if (error.response) {
+        if (error) {
           // Se a resposta for recebida do servidor, mas com um código de status que indica um erro
           console.error("Erro de resposta da API:", error.response.status);
         } else if (error.request) {
