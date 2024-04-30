@@ -12,7 +12,6 @@ export default function PrimeiroAcesso ({navigation}) {
     const [email, setEmail] = useState(null)
     const [password, setpassword] = useState(null)
     const [isSelected, setSelected] = useState(false)
-    const [isSelected2, setSelected2] = useState(false)
     const [birthdate, setBirthdate] = useState(null)
     const [errorSenha, setErrorSenha] = useState (null)
     const [errorEmail, setErrorEmail] = useState (null)
@@ -66,7 +65,7 @@ export default function PrimeiroAcesso ({navigation}) {
           document_type: documentType,
           user_type: userType,
           privacy_terms: isSelected,
-          data_protection_terms: isSelected2,
+          data_protection_terms: isSelected,
          }
 
         UsuarioService.cadastrar(data)
@@ -74,7 +73,7 @@ export default function PrimeiroAcesso ({navigation}) {
           setLoading(false)
           Alert.alert("Sucesso!", "Usuário cadastrado com sucesso") //posso deixar a mensagem a partir da API tbm
         })
-        .catch((error) => {
+        .catch((error) => { 
           setLoading(false)
           Alert.alert("Erro!", "Houve um erro inesperado")
         })
@@ -217,7 +216,7 @@ export default function PrimeiroAcesso ({navigation}) {
         uncheckedIcon="square-o"
         checkedColor='#069E6E'
         checked={isSelected}
-        onPress={() => setSelected(!isSelected2)}
+        onPress={() => setSelected(!isSelected)}
       />
 
       <CustomButton
