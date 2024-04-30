@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, StyleSheet, View, Image, TouchableOpacity, Text, Alert} from 'react-native';
+import { Button, StyleSheet, View, Image, TouchableOpacity, Text, Alert, ActivityIndicator} from 'react-native';
 import { Input } from 'react-native-elements';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import styles from '../style/MainStyle';
@@ -9,23 +9,30 @@ export default function Login({navigation}) {
 
   const [email, setEmail] = useState(null)
   const [password, setpassword] = useState(null)
+  const [isLoading, setLoading] = useState(false)
 
-  const handleLogin = async () => {
-    try {
-      const response = await AuthService.login(email, password);
-
-      if (response.success) {
-        navigation.reset({
-          index: 0,
-          routes: [{ name: 'Home' }],
-        });
-      } else {
-        Alert.alert('Erro', 'Credenciais inválidas. Tente novamente.');
-      }
-    } catch (error) {
-      Alert.alert('Erro', error.message);
+  const handleLogin = () => {
+    
+    let data ={
+      username: email,
+      password: password
     }
-  };
+    
+    setLoading(true)
+    
+    AuthService.login(data)
+    .then((response) => {
+      setLoading(false)
+      navigation.reset({
+        index: 0,
+        routes: [{ name: 'Home' }]
+      })
+    })
+    .catch((error)=> {
+      setLoading(false)
+      Alert.alert('Erroooo aaaaah')
+    })
+  }
   
   return (
     <View style={styles.container}>
@@ -68,12 +75,18 @@ export default function Login({navigation}) {
       />
      </View>
 
+     { isLoading &&
+       <ActivityIndicator/>
+     }
+
+     { !isLoading &&
      <TouchableOpacity
         style={styles.customButton}
         onPress={handleLogin}
       >
         <Text style={styles.buttonText}>ENTRAR</Text>
       </TouchableOpacity>
+      }
       
       <View style={{ marginTop: 10 }}>
         <Text style={styles.linkText}>
