@@ -7,3 +7,5 @@ Expo -> https://expo.dev/
 Npm install
 
 * npm run
+
+# Vamos testar o GPG key 
