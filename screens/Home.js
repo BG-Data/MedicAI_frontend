@@ -66,6 +66,11 @@ export default function Home() {
         <TouchableOpacity onPress={navigateToFavoritos}>
             <Card containerStyle={styles.cardContainer} wrapperStyle={styles.cardWrapper}> 
               <Card.Title>FAVORITOS</Card.Title>
+              <Image
+                source={require('../assets/favoritos.png')}
+                style={{width:"100%",height:100}}
+                resizeMode="contain"
+            />
               <Text > Você pode favoritar seus temas {'\n'} mais pesquisados ou de interesse.</Text>
             </Card>
           </TouchableOpacity>

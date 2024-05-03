@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { Button, StyleSheet, View, Image, TouchableOpacity, Text, Alert, ActivityIndicator} from 'react-native';
-import { Input } from 'react-native-elements';
+import { Button, TextInput, View, Image, TouchableOpacity, Text, Alert, ActivityIndicator, TouchableWithoutFeedback, Keyboard, KeyboardAvoidingView} from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import styles from '../style/MainStyle';
 import AuthService from '../services/AuthService';
@@ -30,12 +29,13 @@ export default function Login({navigation}) {
     })
     .catch((error)=> {
       setLoading(false)
-      Alert.alert('Erroooo aaaaah')
+      Alert.alert('Opa, tivemos um erro')
     })
   }
   
   return (
-    <View style={styles.container}>
+   <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+    <KeyboardAvoidingView style={styles.container} behavior={Platform.OS === "ios" ? "padding" : null} >
 
       <View style={styles.header}>
         <Text style={styles.headerText}> Bem vindo ao MedicAI, {'\n'} seu facilitador na medicina.</Text>
@@ -47,33 +47,30 @@ export default function Login({navigation}) {
         />
 
       <View style={styles.inputContainer}>
-      <Image
+       <Image
           source={require('../assets/email.png')}
-          style={{ width: 20, height: 20, marginRight: 10 }}
-      />
-
-      <Input
-        placeholder='Digite seu e-mail'
-        inputStyle={styles.emailPlaceholder}
-        onChangeText={value => setEmail(value)}
-        keyboardType='email-address'
-        containerStyle={{ flex: 1 }}
-      />
+          style={styles.CampoIcon}
+       />
+       <TextInput
+          placeholder='Digite seu e-mail'
+          onChangeText={value => setEmail(value)}
+          keyboardType='email-address'
+          containerStyle={{ flex: 1 }}
+        />
       </View>
 
-      <View style={styles.inputContainer1}>
-      <Image
+      <View style={styles.inputContainer}>
+        <Image
           source={require('../assets/password.png')}
-          style={{ width: 20, height: 20, marginRight: 10 }}
-      />
-      <Input
-        placeholder='Digite sua senha'
-        inputStyle={styles.emailPlaceholder}
-
-        onChangeText={value => setpassword(value)}
-        secureTextEntry
-      />
-     </View>
+          style={styles.CampoIcon}
+        />
+        <TextInput
+          placeholder='Digite sua senha'
+          onChangeText={value => setpassword(value)}
+          containerStyle={{ flex: 1 }}
+          secureTextEntry
+        />
+      </View>
 
      { isLoading &&
        <ActivityIndicator/>
@@ -103,6 +100,7 @@ export default function Login({navigation}) {
           Esqueci minha senha
         </Text>
       </View>
-    </View>
+    </KeyboardAvoidingView>
+  </TouchableWithoutFeedback>
   );
 }

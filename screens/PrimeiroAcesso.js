@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { Button, StyleSheet, View, Image, TouchableOpacity, Text, Alert, ScrollView} from 'react-native';
-import { CheckBox, Input } from 'react-native-elements';
-import {TextInputMask} from 'react-native-mask-input';
+import { Button, TextInput, View, Image, TouchableOpacity, Text, Alert, ScrollView, TouchableWithoutFeedback, Keyboard, KeyboardAvoidingView} from 'react-native';
+import { CheckBox } from 'react-native-elements';
+import { TextInputMask } from 'react-native-masked-text';
 import styles from '../style/MainStyle';
 import UsuarioService from '../services/UsuarioService';
 
@@ -81,16 +81,17 @@ export default function PrimeiroAcesso ({navigation}) {
     }
 
   return (
+  <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+   <KeyboardAvoidingView style={styles.container} behavior={Platform.OS === "ios" ? "padding" : null}>
    <ScrollView>
     <View style={styles.container}>
       <View style={styles.inputContainer}>
         <Image
           source={require('../assets/profile.png')}
-          style={{ width: 20, height: 20, marginRight: 10 }}
+          style={styles.CampoIcon}
         />
-        <Input
+        <TextInput
         placeholder='Digite seu nome'
-        inputStyle={styles.emailPlaceholder}
         onChangeText={value => {
           setName(value)
           setErrorName(null)
@@ -102,12 +103,11 @@ export default function PrimeiroAcesso ({navigation}) {
 
       <View style={styles.inputContainer}>
         <Image
-          source={require('../assets/cpf.png')}
-          style={{ width: 20, height: 20, marginRight: 10 }}
+          source={require('../assets/documento-pessoal.png')}
+          style={styles.CampoIcon}
         />
-        <Input
+        <TextInput
           placeholder='Digite seu documento'
-          inputStyle={styles.emailPlaceholder}
           onChangeText={value => {
             setDocument(value)
             setErrorDocument (null)
@@ -122,11 +122,10 @@ export default function PrimeiroAcesso ({navigation}) {
       <View style={styles.inputContainer}>
         <Image
           source={require('../assets/cpf.png')}
-          style={{ width: 20, height: 20, marginRight: 10 }}
+          style={styles.CampoIcon}
         />
-        <Input
+        <TextInput
           placeholder='Qual tipo de documento digitado?'
-          inputStyle={styles.emailPlaceholder}
           onChangeText={value => {
             setDocumentType(value)
           }}
@@ -137,12 +136,16 @@ export default function PrimeiroAcesso ({navigation}) {
 
       <View style={styles.inputContainer}>
         <Image
-          source={require('../assets/cpf.png')}
-          style={{ width: 20, height: 20, marginRight: 10 }}
+          source={require('../assets/data-nascimento.png')}
+          style={styles.CampoIcon}
         />
-        <Input
+        <TextInputMask
+          type={'datetime'}
+          options={{
+            format: 'YYYY-MM-DD'
+          }}
           placeholder='Digite sua data de nascimento'
-          inputStyle={styles.emailPlaceholder}
+          value={birthdate} // Use o valor de birthdate para exibir o texto digitado
           onChangeText={value => {
             setBirthdate(value)
           }}
@@ -155,11 +158,10 @@ export default function PrimeiroAcesso ({navigation}) {
       <View style={styles.inputContainer}>
         <Image
           source={require('../assets/email.png')}
-          style={{ width: 20, height: 20, marginRight: 10 }}
+          style={styles.CampoIcon}
         />
-        <Input
+        <TextInput
           placeholder='Digite seu e-mail'
-          inputStyle={styles.emailPlaceholder}
           onChangeText={value => {
             setEmail(value)
             setErrorEmail(null)
@@ -173,11 +175,10 @@ export default function PrimeiroAcesso ({navigation}) {
       <View style={styles.inputContainer}>
         <Image
           source={require('../assets/password.png')}
-          style={{ width: 20, height: 20, marginRight: 10 }}
+          style={styles.CampoIcon}
         />
-        <Input
+        <TextInput
           placeholder='Digite sua senha'
-          inputStyle={styles.emailPlaceholder}
           onChangeText={value => setpassword(value)}
           secureTextEntry
           returnKeyType='done'
@@ -188,11 +189,10 @@ export default function PrimeiroAcesso ({navigation}) {
       <View style={styles.inputContainer}>
         <Image
           source={require('../assets/cpf.png')}
-          style={{ width: 20, height: 20, marginRight: 10 }}
+          style={styles.CampoIcon}
         />
-        <Input
+        <TextInput
           placeholder='Você é medico ou cliente?'
-          inputStyle={styles.emailPlaceholder}
           onChangeText={value => {
             setUserType(value)
           }}
@@ -226,5 +226,7 @@ export default function PrimeiroAcesso ({navigation}) {
 
     </View>
    </ScrollView>
+   </KeyboardAvoidingView>
+ </TouchableWithoutFeedback>
   );  
 }

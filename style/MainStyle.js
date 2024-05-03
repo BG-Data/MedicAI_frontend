@@ -8,17 +8,6 @@ const styles = StyleSheet.create({
       justifyContent: 'center',
     },
 
-    inputContainer1: {
-      backgroundColor: '#ffffff', // Cor de fundo branca para o contêiner do campo de email
-      borderRadius: 15, // Borda arredondada
-      marginBottom: 10, // Margem inferior para espaçamento
-      paddingHorizontal: 15, // Preenchimento horizontal para espaçamento interno
-      width: '90%', // Largura do contêiner (ajuste conforme necessário)
-      flexDirection: 'row', // Alinha itens horizontalmente
-      alignItems: 'center', // Alinha itens verticalmente
-      marginBottom: 15, // Adicione margem inferior conforme necessário
-    },
-
     inputContainer: {
       backgroundColor: '#ffffff', // Cor de fundo branca para o contêiner do campo de email
       borderRadius: 15, // Borda arredondada
@@ -28,17 +17,13 @@ const styles = StyleSheet.create({
       flexDirection: 'row', // Alinha itens horizontalmente
       alignItems: 'center', // Alinha itens verticalmente
       marginBottom: 15, // Adicione margem inferior conforme necessário
-    },
-
-    emailPlaceholder: {
-      color: '#069E6E', // Cor do texto do placeholder do email
+      height: 60,
     },
 
     header: {
-      paddingVertical: 40,
-      width: '100%', // Largura total para o cabeçalho ocupar toda a largura da tela
+      paddingVertical: 20,
+      width: '100%',
       alignItems: 'center',
-      position: 'absolute', // Posicionar absolutamente em relação ao contêiner pai
       top: 0, // Posicionar no topo do contêiner pai
     },
     
@@ -89,14 +74,14 @@ const styles = StyleSheet.create({
     },
 
     apresentacao: {
-      alignItems: 'center', // Centraliza os itens horizontalmente
-      marginBottom: 20, // Espaçamento inferior
-      paddingHorizontal: 20, // Preenchimento horizontal
+      alignItems: 'center',
+      marginBottom: 20,
+      paddingHorizontal: 20,
     },
   
     apresentacaoText: {
-      textAlign: 'center', // Centraliza o texto horizontalmente
-      width: '80%', // Define a largura do texto
+      textAlign: 'center',
+      width: '80%',
     },
 
     CampoIcon: {
@@ -104,7 +89,6 @@ const styles = StyleSheet.create({
       height: 20,
       marginRight: 10,
     },
-
 
     containerhome: {
 
