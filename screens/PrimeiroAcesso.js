@@ -82,7 +82,7 @@ export default function PrimeiroAcesso ({navigation}) {
 
   return (
   <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-   <KeyboardAvoidingView style={styles.container} behavior={Platform.OS === "ios" ? "padding" : null}>
+   <KeyboardAvoidingView behavior="padding" style={styles.container}>
    <ScrollView>
     <View style={styles.container}>
       <View style={styles.inputContainer}>

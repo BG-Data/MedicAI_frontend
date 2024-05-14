@@ -35,7 +35,7 @@ export default function Login({navigation}) {
   
   return (
    <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-    <KeyboardAvoidingView style={styles.container} behavior={Platform.OS === "ios" ? "padding" : null} >
+    <KeyboardAvoidingView behavior="padding" style={styles.container} >
 
       <View style={styles.header}>
         <Text style={styles.headerText}> Bem vindo ao MedicAI, {'\n'} seu facilitador na medicina.</Text>

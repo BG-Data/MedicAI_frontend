@@ -51,7 +51,7 @@ function HomeTabs() {
 }
 
 function MyStack() {
-
+  
   const commonHeaderStyle = {
     headerStyle: {
       backgroundColor: '#069E6E',

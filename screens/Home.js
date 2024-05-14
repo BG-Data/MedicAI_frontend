@@ -33,8 +33,23 @@ export default function Home() {
     <ScrollView>
      
     <View style={styles.containerhome}>
-      <View style={styles.column}>
 
+
+
+
+    <View style={styles.row}>
+        <Avatar
+          size={32}
+          rounded
+          source={require ('../assets/profile.png')}
+        />
+      <Text style={styles.headerText}> Oi Medico </Text>
+    </View>
+
+
+
+
+      <View style={styles.column}>
         <Text style={styles.headerText}> Oi Medico</Text>
 
         <TouchableOpacity onPress={navigateToChat}>
@@ -49,7 +64,7 @@ export default function Home() {
           </Card>
         </TouchableOpacity>
 
-     <View style={styles.row}>
+    <View style={styles.row}>
 
         <TouchableOpacity onPress={navigateToAssuntos}>
             <Card containerStyle={styles.cardContainer } wrapperStyle={styles.cardWrapper}> 
