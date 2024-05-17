@@ -2,7 +2,8 @@
 
 Repositório base Frontend em React Native de uma aplicação móvel com uso de Grandes modelos de linguagem (GML), que oferece um ambiente para conversação focada em conhecimento da medicina de família e assistência na interpretação e leitura de textos do tipo PDF a fim de agilizar, facilitar e promover o trabalho e estudo de médicos estudantes e médicos formados na área.
 
-![alt text](path/to/file)
+![alt text](assets/MedicAI.png)
+![alt text](assets/MedicAI (2).png)
 
 ## **Pré-requisitos**
 
@@ -47,7 +48,7 @@ Para iniciar o aplicativo, siga estas etapas:
 1. Execute o comando:
     
     ```bash
-    expo start
+    npx expo start
     ```
     
 2. Escaneie o código QR exibido com o aplicativo Expo Go no seu dispositivo móvel para carregar o aplicativo nele. Se você utilizar Android, abra o aplicativo Expo Go e realize diretamente nele. Para IOS, você pode utilizar sua câmera app.
