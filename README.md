@@ -3,7 +3,6 @@
 Repositório base Frontend em React Native de uma aplicação móvel com uso de Grandes modelos de linguagem (GML), que oferece um ambiente para conversação focada em conhecimento da medicina de família e assistência na interpretação e leitura de textos do tipo PDF a fim de agilizar, facilitar e promover o trabalho e estudo de médicos estudantes e médicos formados na área.
 
 ![alt text](assets/MedicAI.png)
-![alt text](assets/MedicAI (2).png)
 
 ## **Pré-requisitos**
 
@@ -72,3 +71,5 @@ Este projeto está licenciado sob a Licença MIT - veja o arquivo LICENSE para m
 ## **Contato**
 
 Se você tiver alguma dúvida ou sugestão, não hesite em entrar em contato! (vale a pena deixar os emails aqui ????? Quer colocar fotinhas nossas de contribuidores hihihihiih)
+
+![alt text](assets/MedicAI(2).png)
