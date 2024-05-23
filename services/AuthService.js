@@ -10,7 +10,7 @@ const AuthService = {
             }
           };
 
-      const response = await axios.post("http://3.101.57.70/auth", data,options);
+      const response = await axios.post("http://54.67.52.140/auth", data,options);
       return response.data;
     } catch (error) {
         if (error) {
